@@ -25,7 +25,8 @@ import { UserEntity } from "../entities/user.entity";
 export const connection = createConnection({
     type: "postgres",
     url: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
+    // ssl: { rejectUnauthorized: false },
+    ssl: true,
     // host: "localhost",
     // port: 5432,
     // username: "postgres",
@@ -47,4 +48,5 @@ export const connection = createConnection({
     }
 }
 );
+
 
