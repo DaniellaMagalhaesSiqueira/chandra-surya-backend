@@ -8,6 +8,7 @@
     "start": "node dist/server",
     "watch": "tsnd --respawn server.ts",
     "build": "tsc",
+    "dev": "ts-node server",
     "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/database/config.ts"
   },
   "engines": {

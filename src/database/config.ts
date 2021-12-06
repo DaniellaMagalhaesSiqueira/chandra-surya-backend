@@ -24,22 +24,22 @@ import { UserEntity } from "../entities/user.entity";
 
 export const connection = createConnection({
     type: "postgres",
-    url: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
+    synchronize: true,
+    // url: process.env.DATABASE_URL,
+    // ssl: { rejectUnauthorized: false },
     //host: "localhost",
     //port: 5432,
     //username: "postgres",
     //password: "root",
     //database: "chandra_surya",
     logging: true,
+    
     entities: [
         UserEntity, 
         ArticleEntity,
         CommentEntity,
         ConsultationEntity,
     ],
-    cli: {
-        migrationsDir: 'src/migrations',
-      }
-});
+}
+);
 
