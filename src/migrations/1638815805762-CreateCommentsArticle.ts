@@ -7,7 +7,7 @@ export class CreateCommentsArticle1638815805762 implements MigrationInterface {
             new Table({
                 name: "comments_article",
                 columns: [
-                    {name: "id", type: "serial",  isPrimary: true, generationStrategy: "uuid", default: "serial_generated_v4()"},
+                    {name: "id", type: "uuid",  isPrimary: true, generationStrategy: "uuid"},
                     {name: "user_id", type: "int"},
                     {name: "article_id", type: "int"},
                     {name: "comment", type: "text"},

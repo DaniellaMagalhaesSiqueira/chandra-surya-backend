@@ -8,7 +8,7 @@ export class CreateUsers1638815207256 implements MigrationInterface {
             new Table({
                 name: "users",
                 columns: [
-                    {name: "id", type: "serial",  isPrimary: true, generationStrategy: "uuid", default: "serial_generated_v4()"},
+                    {name: "id", type: "uuid",  isPrimary: true, generationStrategy: "uuid"},
                     {name: "isadmin", type: "bool", },
                     {name: "name_user", type: "varchar", length: "100"},
                     {name: "email", type: "varchar", length: "255"},

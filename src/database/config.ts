@@ -40,11 +40,12 @@ export const connection = createConnection({
         ConsultationEntity,
     ],
     migrations: [
-        "src/migrations/**/*.ts"
+        "dist/src/migrations/**/*.js"
     ],
     cli:{
-        "migrationsDir": "src/migrations"
-    }
+        "migrationsDir": "dist/src/migrations"
+    },
+    migrationsRun: true,
 }
 );
 
