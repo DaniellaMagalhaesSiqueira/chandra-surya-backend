@@ -13,8 +13,9 @@ app.use(routes);
 
 
 app.listen(port, async () => {
+
     await connection;
-    await (await connection).runMigrations();
+    
     console.log('Conexão com o banco feita com sucesso!');
     console.log(`Aplicação online na porta: ${port}`);
 });

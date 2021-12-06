@@ -7,7 +7,7 @@ export class CommentEntity{
     @PrimaryGeneratedColumn({name: 'id'})
     id?: number;
 
-    @OneToOne(() => UserEntity, user => user.id)
+    @OneToOne(() => UserEntity)
     @JoinColumn({name: 'user_id'})
     user?: number;
 
@@ -16,7 +16,7 @@ export class CommentEntity{
     comment?: string;
 
 
-    @OneToOne(() => ArticleEntity, article => article.id)
+    @OneToOne(() => ArticleEntity)
     @JoinColumn({name: 'article_id'})
     article?: number;
 }

@@ -24,9 +24,8 @@ import { UserEntity } from "../entities/user.entity";
 
 export const connection = createConnection({
     type: "postgres",
-    synchronize: true,
-    // url: process.env.DATABASE_URL,
-    // ssl: { rejectUnauthorized: false },
+    // synchronize: true,
+    url: process.env.DATABASE_URL,
     host: "localhost",
     port: 5432,
     username: "postgres",
@@ -40,6 +39,12 @@ export const connection = createConnection({
         CommentEntity,
         ConsultationEntity,
     ],
+    migrations: [
+        "src/migrations/**/*.ts"
+    ],
+    cli:{
+        "migrationsDir": "src/migrations"
+    }
 }
 );
 
