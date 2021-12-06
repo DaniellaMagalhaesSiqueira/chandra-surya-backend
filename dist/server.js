@@ -17,12 +17,11 @@ const cors_1 = __importDefault(require("cors"));
 const index_1 = __importDefault(require("./src/routes/index"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const config_1 = require("./src/database/config");
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use(index_1.default);
-app.get('/*', (req, res) => res.sendFile('index.html', { root: '/dist' }));
 app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
     yield config_1.connection;
     console.log('Conexão com o banco feita com sucesso!');
