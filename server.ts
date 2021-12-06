@@ -4,7 +4,7 @@ import routes from './src/routes/index';
 import bodyParser from 'body-parser';
 import { connection } from './src/database/config';
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
