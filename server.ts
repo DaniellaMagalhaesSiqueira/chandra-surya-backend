@@ -10,9 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(routes);
-app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: '/front/src'}),
-);
+
 
 app.listen(port, async () => {
     await connection;
