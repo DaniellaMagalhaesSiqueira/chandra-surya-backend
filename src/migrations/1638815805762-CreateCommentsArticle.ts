@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateCommentsArticle1638815805762 implements MigrationInterface {
 
@@ -7,12 +7,12 @@ export class CreateCommentsArticle1638815805762 implements MigrationInterface {
             new Table({
                 name: "comments_article",
                 columns: [
-                    {name: "id", type: "serial",  isPrimary: true, generationStrategy: "uuid", default: "serial_generated_v4()"},
-                    {name: "user_id", type: "int"},
-                    {name: "article_id", type: "int"},
-                    {name: "comment", type: "text"},
+                    { name: "id", type: "uuid", isPrimary: true, generationStrategy: "uuid" },
+                    { name: "user_id", type: "int" },
+                    { name: "article_id", type: "int" },
+                    { name: "comment", type: "text" },
                 ]
-            }),true,
+            }), true,
         );
     }
 

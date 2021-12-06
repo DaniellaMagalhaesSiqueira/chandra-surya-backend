@@ -32,19 +32,20 @@ export const connection = createConnection({
     // password: "root",
     // database: "chandra_surya",
     logging: true,
-    
+
     entities: [
-        UserEntity, 
+        UserEntity,
         ArticleEntity,
         CommentEntity,
         ConsultationEntity,
     ],
     migrations: [
-        "src/migrations/**/*.ts"
+        "dist/src/migrations/**/*.js"
     ],
-    cli:{
-        "migrationsDir": "src/migrations"
-    }
+    cli: {
+        "migrationsDir": "dist/src/migrations"
+    },
+    migrationsRun: true,
 }
 );
 

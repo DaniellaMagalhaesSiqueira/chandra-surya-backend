@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateConsultations1638815480482 implements MigrationInterface {
 
@@ -7,13 +7,13 @@ export class CreateConsultations1638815480482 implements MigrationInterface {
             new Table({
                 name: "consultations",
                 columns: [
-                    {name: "id", type: "serial",  isPrimary: true, generationStrategy: "uuid", default: "serial_generated_v4()"},
-                    {name: "professional", type: "varchar", length: "100"},
-                    {name: "imageurl", type: "varchar", length: "255"},
-                    {name: "description", type: "varchar", length: "255"},
-                    {name: "theme", type: "varchar", length: "100"},
-                    {name: "contact", type: "varchar", length: "255"},
-                    {name: "price", type: "float4"},
+                    { name: "id", type: "uuid", isPrimary: true, generationStrategy: "uuid" },
+                    { name: "professional", type: "varchar", length: "100" },
+                    { name: "imageurl", type: "varchar", length: "255" },
+                    { name: "description", type: "varchar", length: "255" },
+                    { name: "theme", type: "varchar", length: "100" },
+                    { name: "contact", type: "varchar", length: "255" },
+                    { name: "price", type: "float4" },
                 ]
             }), true,
         );
