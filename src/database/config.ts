@@ -27,11 +27,11 @@ export const connection = createConnection({
     synchronize: true,
     // url: process.env.DATABASE_URL,
     // ssl: { rejectUnauthorized: false },
-    //host: "localhost",
-    //port: 5432,
-    //username: "postgres",
-    //password: "root",
-    //database: "chandra_surya",
+    host: "localhost",
+    port: 5432,
+    username: "postgres",
+    password: "root",
+    database: "chandra_surya",
     logging: true,
     
     entities: [
