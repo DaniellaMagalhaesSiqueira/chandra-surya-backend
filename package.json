@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/server",
     "watch": "tsnd --respawn server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/database/config.ts"
   },
   "engines": {
     "node": "16.13.0",

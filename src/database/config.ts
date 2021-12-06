@@ -37,6 +37,9 @@ export const connection = createConnection({
         ArticleEntity,
         CommentEntity,
         ConsultationEntity,
-    ]
+    ],
+    cli: {
+        migrationsDir: 'src/migrations',
+      }
 });
 
