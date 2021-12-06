@@ -26,7 +26,7 @@ export const connection = createConnection({
     type: "postgres",
     url: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
-    // host: "localhost",
+    host: process.env.DB_HOST || "localhost",
     // port: 5432,
     // username: "postgres",
     // password: "root",
