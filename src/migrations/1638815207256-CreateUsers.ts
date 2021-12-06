@@ -16,12 +16,12 @@ export class CreateUsers1638815207256 implements MigrationInterface {
                     {name: "password", type: "varchar", length: "255"},
                     {name: "brithdate", type: "date"},
                 ]
-            }),
+            }), true,
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('users');
+        await queryRunner.dropTable('users', true);
     }
 
 

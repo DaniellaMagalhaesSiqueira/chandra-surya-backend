@@ -24,13 +24,13 @@ import { UserEntity } from "../entities/user.entity";
 
 export const connection = createConnection({
     type: "postgres",
-    // synchronize: true,
     url: process.env.DATABASE_URL,
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "root",
-    database: "chandra_surya",
+    ssl: { rejectUnauthorized: false },
+    // host: "localhost",
+    // port: 5432,
+    // username: "postgres",
+    // password: "root",
+    // database: "chandra_surya",
     logging: true,
     
     entities: [

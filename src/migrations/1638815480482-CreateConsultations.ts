@@ -15,12 +15,12 @@ export class CreateConsultations1638815480482 implements MigrationInterface {
                     {name: "contact", type: "varchar", length: "255"},
                     {name: "price", type: "float4"},
                 ]
-            }),
+            }), true,
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('consultations');
+        await queryRunner.dropTable('consultations', true);
     }
 
 

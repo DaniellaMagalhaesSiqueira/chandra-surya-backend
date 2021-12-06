@@ -12,12 +12,12 @@ export class CreateCommentsArticle1638815805762 implements MigrationInterface {
                     {name: "article_id", type: "int"},
                     {name: "comment", type: "text"},
                 ]
-            }),
+            }),true,
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('articles');
+        await queryRunner.dropTable('comments_article', true);
     }
 
 }

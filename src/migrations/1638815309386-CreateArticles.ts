@@ -15,12 +15,12 @@ export class CreateArticles1638815309386 implements MigrationInterface {
                     {name: "theme", type: "varchar", length: "100"},
                     {name: "imageurl", type: "varchar", length: "255"},
                 ]
-                }),
+                }), true,
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('articles');
+        await queryRunner.dropTable('articles', true);
     }
 
 }
