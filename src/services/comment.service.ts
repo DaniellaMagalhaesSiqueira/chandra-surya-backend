@@ -1,3 +1,5 @@
+import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
+import { CommentEntity } from "../entities/comment.entity";
 import { Comment } from "../models/comment.model";
 import { CommentRepository } from "../repositories/comment.repository";
 
@@ -12,15 +14,15 @@ export class CommentService{
         return CommentRepository.getById(id);
     }
 
-    getByArticle(article: number){
+    getByArticle(article: string){
         return CommentRepository.getByArticle(article);
     }
 
-    create(comment: Comment) {
+    create(comment: QueryDeepPartialEntity<CommentEntity>) {
         return CommentRepository.create(comment);
     }
 
-    async update(comment: string, user: number, article: number, id: string) {
+    async update(comment: string, user: string, article: string, id: string) {
         const comment_get = await CommentRepository.getById(parseInt(id));
         if(comment_get) {
             await CommentRepository.update(parseInt(id), { comment,  user, article });

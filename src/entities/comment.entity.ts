@@ -9,7 +9,7 @@ export class CommentEntity{
 
     @OneToOne(() => UserEntity)
     @JoinColumn({name: 'user_id'})
-    user?: number;
+    user?: string;
 
     
     @Column({ name: 'comment', type: 'text'})
@@ -18,5 +18,5 @@ export class CommentEntity{
 
     @OneToOne(() => ArticleEntity)
     @JoinColumn({name: 'article_id'})
-    article?: number;
+    article?: string;
 }
