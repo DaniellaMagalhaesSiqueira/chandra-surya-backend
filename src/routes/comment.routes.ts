@@ -21,7 +21,7 @@ router.get('/id/:id', async (req: Request, res: Response) => {
 });
 
 router.get('/article/:article', async (req: Request, res: Response)=>{
-    const comments = await commentService.getByArticle(parseInt(req.params.article));
+    const comments = await commentService.getByArticle(req.params.article);
         if(comments){
             res.status(200).send(comments);
         }else{
