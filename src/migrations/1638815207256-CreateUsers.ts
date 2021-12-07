@@ -14,7 +14,7 @@ export class CreateUsers1638815207256 implements MigrationInterface {
                     {name: "email", type: "varchar", length: "255"},
                     {name: "cpf", type: "varchar", length: "14"},
                     {name: "password", type: "varchar", length: "255"},
-                    {name: "brithdate", type: "date"},
+                    {name: "birthdate", type: "date"},
                 ]
             }), true,
         );
