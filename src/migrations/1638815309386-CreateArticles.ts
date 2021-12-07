@@ -7,7 +7,7 @@ export class CreateArticles1638815309386 implements MigrationInterface {
             new Table({
                 name: "articles",
                 columns: [
-                    {name: "id", type: "uuid",  isPrimary: true, generationStrategy: "uuid"},
+                    {name: "id", type: "uuid",  isPrimary: true, generationStrategy: "uuid", default: 'uuid_generate_v4()'},
                     {name: "title", type: "varchar", length: "255"},
                     {name: "author", type: "varchar", length: "100"},
                     {name: "preview", type: "varchar", length: "255"},
