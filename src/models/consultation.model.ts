@@ -1,5 +1,5 @@
 export interface Consultation {
-    id: number;
+    id: string;
     professional: string;
     imageUrl: string;
     description: string;

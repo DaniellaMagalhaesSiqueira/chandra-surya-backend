@@ -11,7 +11,7 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 router.get('/id/:id', async (req: Request, res: Response) => {
-    const users = await userService.getById(parseInt(req.params.id));
+    const users = await userService.getById(req.params.id);
     if(users) {
         res.status(200).send(users);
     } else {

@@ -12,7 +12,7 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 router.get('/id/:id', async (req: Request, res: Response) => {
-    const consultation = await consultationService.getById(parseInt(req.params.id));
+    const consultation = await consultationService.getById(req.params.id);
     if(consultation) {
         res.status(200).send(consultation);
     } else {

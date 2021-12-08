@@ -1,5 +1,3 @@
-import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
-import { CommentEntity } from "../entities/comment.entity";
 import { Comment } from "../models/comment.model";
 import { CommentRepository } from "../repositories/comment.repository";
 
@@ -10,7 +8,7 @@ export class CommentService{
         return CommentRepository.getAll();
     }
 
-    getById(id: number) {
+    getById(id: string) {
         return CommentRepository.getById(id);
     }
 
@@ -18,14 +16,14 @@ export class CommentService{
         return CommentRepository.getByArticle(article);
     }
 
-    create(comment: QueryDeepPartialEntity<CommentEntity>) {
+    create(comment: Partial<Comment>) {
         return CommentRepository.create(comment);
     }
 
     async update(comment: string, user: string, article: string, id: string) {
-        const comment_get = await CommentRepository.getById(parseInt(id));
+        const comment_get = await CommentRepository.getById(id);
         if(comment_get) {
-            await CommentRepository.update(parseInt(id), { comment,  user, article });
+            await CommentRepository.update(id, { comment,  user, article });
             return true;
         } else {
             return false;
@@ -33,9 +31,9 @@ export class CommentService{
     }
 
     async remove(id: string) {
-        const article = await CommentRepository.getById(parseInt(id));
+        const article = await CommentRepository.getById(id);
         if (article) {
-            await CommentRepository.remove(parseInt(id));
+            await CommentRepository.remove(id);
             return true;
         } else {
             return false;

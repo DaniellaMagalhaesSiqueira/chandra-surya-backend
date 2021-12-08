@@ -10,7 +10,7 @@ export class ArticleService{
         return ArticleRepository.getAll();
     }
 
-    getById(id: number) {
+    getById(id: string) {
         return ArticleRepository.getById(id);
     }
 
@@ -27,9 +27,9 @@ export class ArticleService{
         imageUrl: string,
         id: string
         ) {
-        const article = await ArticleRepository.getById(parseInt(id));
+        const article = await ArticleRepository.getById(id);
         if(article) {
-            await ArticleRepository.update(parseInt(id), { title, author, preview, text, theme, imageUrl });
+            await ArticleRepository.update(id, { title, author, preview, text, theme, imageUrl });
             return true;
         } else {
             return false;
@@ -37,9 +37,9 @@ export class ArticleService{
     }
 
     async remove(id: string) {
-        const article = await ArticleRepository.getById(parseInt(id));
+        const article = await ArticleRepository.getById(id);
         if (article) {
-            await ArticleRepository.remove(parseInt(id));
+            await ArticleRepository.remove(id);
             return true;
         } else {
             return false;

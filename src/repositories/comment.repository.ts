@@ -10,7 +10,7 @@ export class CommentRepository{
         .find();
     }
 
-    public static getById(id: number){
+    public static getById(id: string){
         return getConnection()
         .getRepository(CommentEntity)
         .findOne({ id });
@@ -22,22 +22,19 @@ export class CommentRepository{
         .find({ article })
     }
 
-    public static create(comment: QueryDeepPartialEntity<CommentEntity>){
+    public static create(comment: Partial<Comment>){
         return getConnection()
         .getRepository(CommentEntity)
         .insert(comment);
     }
 
-    public static update(id: number, comment: QueryDeepPartialEntity<CommentEntity>){
-        //necessária conversão pois são chaves estrangeiras do banco e não podem chegar na service como strings
-        // comment.article = Number (comment.article);
-        // comment.user = Number (comment.user);
+    public static update(id: string, comment:Partial<Comment>){
         return getConnection()
         .getRepository(CommentEntity)
         .update({ id }, comment);
     }
 
-    public static remove(id: number){
+    public static remove(id: string){
         return getConnection()
         .getRepository(CommentEntity)
         .delete({ id });

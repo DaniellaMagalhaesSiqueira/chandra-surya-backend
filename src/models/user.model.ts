@@ -1,5 +1,5 @@
 export interface User{
-    id: number;
+    id: string;
     isAdmin: boolean;
     name: string;
     email: string;

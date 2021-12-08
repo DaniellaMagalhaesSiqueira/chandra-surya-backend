@@ -5,7 +5,7 @@ import { UserEntity } from "./user.entity";
 @Entity({ name: 'comments_article'})
 export class CommentEntity{
     @PrimaryGeneratedColumn({name: 'id'})
-    id?: number;
+    id?: string;
 
     @OneToOne(() => UserEntity)
     @JoinColumn({name: 'user_id'})

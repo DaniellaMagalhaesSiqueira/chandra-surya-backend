@@ -12,7 +12,7 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 router.get('/id/:id', async (req: Request, res: Response) => {
-    const article = await articleService.getById(parseInt(req.params.id));
+    const article = await articleService.getById(req.params.id);
     if(article) {
         res.status(200).send(article);
     } else {

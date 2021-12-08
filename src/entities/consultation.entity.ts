@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity({ name: 'consultations'})
 export class ConsultationEntity{
     @PrimaryGeneratedColumn()
-    id?: number;
+    id?: string;
 
     @Column({name: 'professional', type: 'varchar', length:100 })
     professional?: string;

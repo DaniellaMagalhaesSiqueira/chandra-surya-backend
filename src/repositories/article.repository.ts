@@ -10,7 +10,7 @@ export class ArticleRepository{
         .find();
     }
 
-    public static getById(id: number){
+    public static getById(id: string){
         return getConnection()
         .getRepository(ArticleEntity)
         .findOne({ id });
@@ -22,13 +22,13 @@ export class ArticleRepository{
         .insert(article);
     }
 
-    public static update(id: number, article: Partial<Article>){
+    public static update(id: string, article: Partial<Article>){
         return getConnection()
         .getRepository(ArticleEntity)
         .update({ id }, article);
     }
 
-    public static remove(id: number){
+    public static remove(id: string){
         return getConnection()
         .getRepository(ArticleEntity)
         .delete({ id });

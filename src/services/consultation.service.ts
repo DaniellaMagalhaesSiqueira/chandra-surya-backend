@@ -1,3 +1,4 @@
+
 import { Consultation } from "../models/consultation.model";
 import { ConsultationRepository } from "../repositories/consultation.repository";
 
@@ -9,11 +10,11 @@ export class ConsultationService{
         return ConsultationRepository.getAll();
     }
 
-    getById(id: number) {
+    getById(id: string) {
         return ConsultationRepository.getById(id);
     }
 
-    create(consultation: Consultation) {
+    create(consultation: Partial<Consultation>) {
         return ConsultationRepository.create(consultation);
     }
 
@@ -26,9 +27,9 @@ export class ConsultationService{
         price: number | undefined, 
         id: string
         ) {
-        const consultation = await ConsultationRepository.getById(parseInt(id));
+        const consultation = await ConsultationRepository.getById(id);
         if(consultation) {
-            await ConsultationRepository.update(parseInt(id), { professional, theme, description, contact, imageUrl, price});
+            await ConsultationRepository.update(id, { professional, theme, description, contact, imageUrl, price});
             return true;
         } else {
             return false;
@@ -36,9 +37,9 @@ export class ConsultationService{
     }
 
     async remove(id: string) {
-        const consultation = await ConsultationRepository.getById(parseInt(id));
+        const consultation = await ConsultationRepository.getById(id);
         if (consultation) {
-            await ConsultationRepository.remove(parseInt(id));
+            await ConsultationRepository.remove(id);
             return true;
         } else {
             return false;

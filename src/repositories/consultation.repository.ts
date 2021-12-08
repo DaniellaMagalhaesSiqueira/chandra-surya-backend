@@ -1,6 +1,7 @@
 import { getConnection } from "typeorm";
 import { Consultation } from "../models/consultation.model";
 import { ConsultationEntity } from "../entities/consultation.entity";
+import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
 
 export class ConsultationRepository{
     public static getAll(){
@@ -9,7 +10,7 @@ export class ConsultationRepository{
         .find();
     }
 
-    public static getById(id: number){
+    public static getById(id: string){
         return getConnection()
         .getRepository(ConsultationEntity)
         .findOne({ id });
@@ -21,13 +22,13 @@ export class ConsultationRepository{
         .insert(consultation);
     }
 
-    public static update(id: number, consultation: Partial<Consultation>){
+    public static update(id: string, consultation: Partial<Consultation>){
         return getConnection()
         .getRepository(ConsultationEntity)
         .update({ id }, consultation);
     }
 
-    public static remove(id: number){
+    public static remove(id: string){
         return getConnection()
         .getRepository(ConsultationEntity)
         .delete({ id });

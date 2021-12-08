@@ -12,7 +12,7 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 router.get('/id/:id', async (req: Request, res: Response) => {
-    const comment = await commentService.getById(parseInt(req.params.id));
+    const comment = await commentService.getById(req.params.id);
     if(comment) {
         res.status(200).send(comment);
     } else {

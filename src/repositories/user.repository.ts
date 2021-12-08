@@ -1,4 +1,5 @@
 import { getConnection, getRepository } from "typeorm";
+import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
 import { UserEntity } from "../entities/user.entity";
 import { User } from "../models/user.model";
 
@@ -11,7 +12,7 @@ export class UserRepository{
         .find();
     }
 
-    public static getById(id: number){
+    public static getById(id: string){
         return getConnection()
         .getRepository(UserEntity)
         .findOne({ id });
@@ -28,13 +29,13 @@ export class UserRepository{
         .insert(user);
     }
 
-    public static update(id: number, user: Partial<User>){
+    public static update(id: string, user: Partial<User>){
         return getConnection()
         .getRepository(UserEntity)
         .update({ id }, user);
     }
 
-    public static remove(id: number){
+    public static remove(id: string){
         return getConnection()
         .getRepository(UserEntity)
         .delete({ id });

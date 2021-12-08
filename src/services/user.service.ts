@@ -1,3 +1,4 @@
+
 import { User } from "../models/user.model";
 import { UserRepository } from "../repositories/user.repository";
 
@@ -9,7 +10,7 @@ export class usersService {
         return UserRepository.getAll();
     }
 
-    getById(id: number) {
+    getById(id: string) {
         return UserRepository.getById(id);
     }
 
@@ -17,7 +18,7 @@ export class usersService {
         return UserRepository.findByEmailAndPassword(email, password);
     }
 
-    create(user: User) {
+    create(user: Partial<User>) {
         return UserRepository.create(user);
     }
 
@@ -30,9 +31,9 @@ export class usersService {
         birthDate: Date | string, 
         id: string
         ) {
-        const user = await UserRepository.getById(parseInt(id));
+        const user = await UserRepository.getById(id);
         if(user) {
-            await UserRepository.update(parseInt(id), { isAdmin, name, email, password, cpf, birthDate });
+            await UserRepository.update(id, { isAdmin, name, email, password, cpf, birthDate });
             return true;
         } else {
             return false;
@@ -40,9 +41,9 @@ export class usersService {
     }
 
     async remove(id: string) {
-        const user = await UserRepository.getById(parseInt(id));
+        const user = await UserRepository.getById(id);
         if (user) {
-            await UserRepository.remove(parseInt(id));
+            await UserRepository.remove(id);
             return true;
         } else {
             return false;
